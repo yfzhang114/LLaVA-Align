@@ -1,0 +1,80 @@
+{"question_id": 1, "image": "COCO_val2014_000000310196.jpg", "text": "What is the number of persons in the image?", "label": "yes"}
+{"question_id": 2, "image": "", "text": "What is the number of bicycles in the image?", "label": "yes"}
+{"question_id": 3, "image": "", "text": "What is the number of cars in the image?", "label": "yes"}
+{"question_id": 4, "image": "", "text": "What is the number of motorcycles in the image?", "label": "yes"}
+{"question_id": 5, "image": "", "text": "What is the number of airplanes in the image?", "label": "yes"}
+{"question_id": 6, "image": "", "text": "What is the number of buss in the image?", "label": "yes"}
+{"question_id": 7, "image": "", "text": "What is the number of trains in the image?", "label": "yes"}
+{"question_id": 8, "image": "", "text": "What is the number of trucks in the image?", "label": "yes"}
+{"question_id": 9, "image": "", "text": "What is the number of boats in the image?", "label": "yes"}
+{"question_id": 10, "image": "", "text": "What is the number of traffic lights in the image?", "label": "yes"}
+{"question_id": 11, "image": "", "text": "What is the number of fire hydrants in the image?", "label": "yes"}
+{"question_id": 12, "image": "", "text": "What is the number of stop signs in the image?", "label": "yes"}
+{"question_id": 13, "image": "", "text": "What is the number of parking meters in the image?", "label": "yes"}
+{"question_id": 14, "image": "", "text": "What is the number of benchs in the image?", "label": "yes"}
+{"question_id": 15, "image": "", "text": "What is the number of birds in the image?", "label": "yes"}
+{"question_id": 16, "image": "", "text": "What is the number of cats in the image?", "label": "yes"}
+{"question_id": 17, "image": "", "text": "What is the number of dogs in the image?", "label": "yes"}
+{"question_id": 18, "image": "", "text": "What is the number of horses in the image?", "label": "yes"}
+{"question_id": 19, "image": "", "text": "What is the number of sheeps in the image?", "label": "yes"}
+{"question_id": 20, "image": "", "text": "What is the number of cows in the image?", "label": "yes"}
+{"question_id": 21, "image": "", "text": "What is the number of elephants in the image?", "label": "yes"}
+{"question_id": 22, "image": "", "text": "What is the number of bears in the image?", "label": "yes"}
+{"question_id": 23, "image": "", "text": "What is the number of zebras in the image?", "label": "yes"}
+{"question_id": 24, "image": "", "text": "What is the number of giraffes in the image?", "label": "yes"}
+{"question_id": 25, "image": "", "text": "What is the number of backpacks in the image?", "label": "yes"}
+{"question_id": 26, "image": "", "text": "What is the number of umbrellas in the image?", "label": "yes"}
+{"question_id": 27, "image": "", "text": "What is the number of handbags in the image?", "label": "yes"}
+{"question_id": 28, "image": "", "text": "What is the number of ties in the image?", "label": "yes"}
+{"question_id": 29, "image": "", "text": "What is the number of suitcases in the image?", "label": "yes"}
+{"question_id": 30, "image": "", "text": "What is the number of frisbees in the image?", "label": "yes"}
+{"question_id": 31, "image": "", "text": "What is the number of skiss in the image?", "label": "yes"}
+{"question_id": 32, "image": "", "text": "What is the number of snowboards in the image?", "label": "yes"}
+{"question_id": 33, "image": "", "text": "What is the number of sports balls in the image?", "label": "yes"}
+{"question_id": 34, "image": "", "text": "What is the number of kites in the image?", "label": "yes"}
+{"question_id": 35, "image": "", "text": "What is the number of baseball bats in the image?", "label": "yes"}
+{"question_id": 36, "image": "", "text": "What is the number of baseball gloves in the image?", "label": "yes"}
+{"question_id": 37, "image": "", "text": "What is the number of skateboards in the image?", "label": "yes"}
+{"question_id": 38, "image": "", "text": "What is the number of surfboards in the image?", "label": "yes"}
+{"question_id": 39, "image": "", "text": "What is the number of tennis rackets in the image?", "label": "yes"}
+{"question_id": 40, "image": "", "text": "What is the number of bottles in the image?", "label": "yes"}
+{"question_id": 41, "image": "", "text": "What is the number of wine glasss in the image?", "label": "yes"}
+{"question_id": 42, "image": "", "text": "What is the number of cups in the image?", "label": "yes"}
+{"question_id": 43, "image": "", "text": "What is the number of forks in the image?", "label": "yes"}
+{"question_id": 44, "image": "", "text": "What is the number of knifes in the image?", "label": "yes"}
+{"question_id": 45, "image": "", "text": "What is the number of spoons in the image?", "label": "yes"}
+{"question_id": 46, "image": "", "text": "What is the number of bowls in the image?", "label": "yes"}
+{"question_id": 47, "image": "", "text": "What is the number of bananas in the image?", "label": "yes"}
+{"question_id": 48, "image": "", "text": "What is the number of apples in the image?", "label": "yes"}
+{"question_id": 49, "image": "", "text": "What is the number of sandwichs in the image?", "label": "yes"}
+{"question_id": 50, "image": "", "text": "What is the number of oranges in the image?", "label": "yes"}
+{"question_id": 51, "image": "", "text": "What is the number of broccolis in the image?", "label": "yes"}
+{"question_id": 52, "image": "", "text": "What is the number of carrots in the image?", "label": "yes"}
+{"question_id": 53, "image": "", "text": "What is the number of hot dogs in the image?", "label": "yes"}
+{"question_id": 54, "image": "", "text": "What is the number of pizzas in the image?", "label": "yes"}
+{"question_id": 55, "image": "", "text": "What is the number of donuts in the image?", "label": "yes"}
+{"question_id": 56, "image": "", "text": "What is the number of cakes in the image?", "label": "yes"}
+{"question_id": 57, "image": "", "text": "What is the number of chairs in the image?", "label": "yes"}
+{"question_id": 58, "image": "", "text": "What is the number of couchs in the image?", "label": "yes"}
+{"question_id": 59, "image": "", "text": "What is the number of potted plants in the image?", "label": "yes"}
+{"question_id": 60, "image": "", "text": "What is the number of beds in the image?", "label": "yes"}
+{"question_id": 61, "image": "", "text": "What is the number of dining tables in the image?", "label": "yes"}
+{"question_id": 62, "image": "", "text": "What is the number of toilets in the image?", "label": "yes"}
+{"question_id": 63, "image": "", "text": "What is the number of TVs in the image?", "label": "yes"}
+{"question_id": 64, "image": "", "text": "What is the number of laptops in the image?", "label": "yes"}
+{"question_id": 65, "image": "", "text": "What is the number of mouses in the image?", "label": "yes"}
+{"question_id": 66, "image": "", "text": "What is the number of remotes in the image?", "label": "yes"}
+{"question_id": 67, "image": "", "text": "What is the number of keyboards in the image?", "label": "yes"}
+{"question_id": 68, "image": "", "text": "What is the number of cell phones in the image?", "label": "yes"}
+{"question_id": 69, "image": "", "text": "What is the number of microwaves in the image?", "label": "yes"}
+{"question_id": 70, "image": "", "text": "What is the number of ovens in the image?", "label": "yes"}
+{"question_id": 71, "image": "", "text": "What is the number of toasters in the image?", "label": "yes"}
+{"question_id": 72, "image": "", "text": "What is the number of sinks in the image?", "label": "yes"}
+{"question_id": 73, "image": "", "text": "What is the number of refrigerators in the image?", "label": "yes"}
+{"question_id": 74, "image": "", "text": "What is the number of Books in the image?", "label": "yes"}
+{"question_id": 75, "image": "", "text": "What is the number of clocks in the image?", "label": "yes"}
+{"question_id": 76, "image": "", "text": "What is the number of Vases in the image?", "label": "yes"}
+{"question_id": 77, "image": "", "text": "What is the number of Scissorss in the image?", "label": "yes"}
+{"question_id": 78, "image": "", "text": "What is the number of Teddy bears in the image?", "label": "yes"}
+{"question_id": 79, "image": "", "text": "What is the number of Hair driers in the image?", "label": "yes"}
+{"question_id": 80, "image": "", "text": "What is the number of Toothbrushs in the image?", "label": "yes"}

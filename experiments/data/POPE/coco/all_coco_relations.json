@@ -1,0 +1,80 @@
+{"question_id": 1, "image": "COCO_val2014_000000310196.jpg", "text": "What is the relation between the person and the bicycle in the image?", "label": "yes"}
+{"question_id": 2, "image": "", "text": "What is the relation of the airplane and the cloud in the image?", "label": "yes"}
+{"question_id": 3, "image": "", "text": "What is the relation between the cat and the sofa in the image?", "label": "yes"}
+{"question_id": 4, "image": "", "text": "What is the relation of the traffic light and the car in the image?", "label": "yes"}
+{"question_id": 5, "image": "", "text": "What is the relation between the skateboard and the ramp in the image?", "label": "yes"}
+{"question_id": 6, "image": "", "text": "What is the relation of the umbrella and the rain in the image?", "label": "yes"}
+{"question_id": 7, "image": "", "text": "What is the relation between the book and the reading glasses in the image?", "label": "yes"}
+{"question_id": 8, "image": "", "text": "What is the relation of the pizza and the soda in the image?", "label": "yes"}
+{"question_id": 9, "image": "", "text": "What is the relation between the laptop and the coffee mug in the image?", "label": "yes"}
+{"question_id": 10, "image": "", "text": "What is the relation of the dog and the leash in the image?", "label": "yes"}
+{"question_id": 11, "image": "", "text": "What is the relation between the basketball and the hoop in the image?", "label": "yes"}
+{"question_id": 12, "image": "", "text": "What is the relation of the tree and the swing in the image?", "label": "yes"}
+{"question_id": 13, "image": "", "text": "What is the relation between the horse and the fence in the image?", "label": "yes"}
+{"question_id": 14, "image": "", "text": "What is the relation of the refrigerator and the ice cream in the image?", "label": "yes"}
+{"question_id": 15, "image": "", "text": "What is the relation between the clock and the bed in the image?", "label": "yes"}
+{"question_id": 16, "image": "", "text": "What is the relation of the fire hydrant and the dog in the image?", "label": "yes"}
+{"question_id": 17, "image": "", "text": "What is the relation between the baseball glove and the baseball bat in the image?", "label": "yes"}
+{"question_id": 18, "image": "", "text": "What is the relation of the giraffe and the tree in the image?", "label": "yes"}
+{"question_id": 19, "image": "", "text": "What is the relation between the boat and the dock in the image?", "label": "yes"}
+{"question_id": 20, "image": "", "text": "What is the relation of the microwave and the popcorn in the image?", "label": "yes"}
+{"question_id": 21, "image": "", "text": "What is the relation between the cup and the saucer in the image?", "label": "yes"}
+{"question_id": 22, "image": "", "text": "What is the relation of the kite and the sky in the image?", "label": "yes"}
+{"question_id": 23, "image": "", "text": "What is the relation between the elephant and the grass in the image?", "label": "yes"}
+{"question_id": 24, "image": "", "text": "What is the relation of the chair and the table in the image?", "label": "yes"}
+{"question_id": 25, "image": "", "text": "What is the relation between the backpack and the laptop in the image?", "label": "yes"}
+{"question_id": 26, "image": "", "text": "What is the relation of the baseball bat and the baseball in the image?", "label": "yes"}
+{"question_id": 27, "image": "", "text": "What is the relation between the bear and the river in the image?", "label": "yes"}
+{"question_id": 28, "image": "", "text": "What is the relation of the chair and the lamp in the image?", "label": "yes"}
+{"question_id": 29, "image": "", "text": "What is the relation between the suitcase and the airport in the image?", "label": "yes"}
+{"question_id": 30, "image": "", "text": "What is the relation of the tennis racket and the tennis ball in the image?", "label": "yes"}
+{"question_id": 31, "image": "", "text": "What is the relation between the cow and the barn in the image?", "label": "yes"}
+{"question_id": 32, "image": "", "text": "What is the relation of the backpack and the hiking trail in the image?", "label": "yes"}
+{"question_id": 33, "image": "", "text": "What is the relation between the snowboard and the snow slope in the image?", "label": "yes"}
+{"question_id": 34, "image": "", "text": "What is the relation of the cup and the tea bag in the image?", "label": "yes"}
+{"question_id": 35, "image": "", "text": "What is the relation between the bench and the park in the image?", "label": "yes"}
+{"question_id": 36, "image": "", "text": "What is the relation between the cell phone and the charger in the image?", "label": "yes"}
+{"question_id": 37, "image": "", "text": "What is the relation of the zebra and the grassland in the image?", "label": "yes"}
+{"question_id": 38, "image": "", "text": "What is the relation between the hot dog and the mustard in the image?", "label": "yes"}
+{"question_id": 39, "image": "", "text": "What is the relation between the baseball glove and the baseball in the image?", "label": "yes"}
+{"question_id": 40, "image": "", "text": "What is the relation between the dog and the fire hydrant in the image?", "label": "yes"}
+{"question_id": 41, "image": "", "text": "What is the relation of the laptop and the coffee mug in the image?", "label": "yes"}
+{"question_id": 42, "image": "", "text": "What is the relation between the chair and the desk in the image?", "label": "yes"}
+{"question_id": 43, "image": "", "text": "What is the relation of the bird and the birdhouse in the image?", "label": "yes"}
+{"question_id": 44, "image": "", "text": "What is the relation between the fork and the plate in the image?", "label": "yes"}
+{"question_id": 45, "image": "", "text": "What is the relation between the book and the reading glasses in the image?", "label": "yes"}
+{"question_id": 46, "image": "", "text": "What is the relation between the horse and the saddle in the image?", "label": "yes"}
+{"question_id": 47, "image": "", "text": "What is the relation between the truck and the gas station in the image?", "label": "yes"}
+{"question_id": 48, "image": "", "text": "What is the relation of the kite and the sky in the image?", "label": "yes"}
+{"question_id": 49, "image": "", "text": "What is the relation between the spoon and the bowl in the image?", "label": "yes"}
+{"question_id": 50, "image": "", "text": "What is the relation between the bear and the riverbank in the image?", "label": "yes"}
+{"question_id": 51, "image": "", "text": "What is the relation of the car and the gas pump in the image?", "label": "yes"}
+{"question_id": 52, "image": "", "text": "What is the relation between the orange and the fruit basket in the image?", "label": "yes"}
+{"question_id": 53, "image": "", "text": "What is the relation between the microwave and the popcorn in the image?", "label": "yes"}
+{"question_id": 54, "image": "", "text": "What is the relation between the surfboard and the ocean in the image?", "label": "yes"}
+{"question_id": 55, "image": "", "text": "What is the relation between the chair and the lamp in the image?", "label": "yes"}
+{"question_id": 56, "image": "", "text": "What is the relation between the spoon and the soup in the image?", "label": "yes"}
+{"question_id": 57, "image": "", "text": "What is the relation between the basketball and the court in the image?", "label": "yes"}
+{"question_id": 58, "image": "", "text": "What is the relation of the backpack and the hiking trail in the image?", "label": "yes"}
+{"question_id": 59, "image": "", "text": "What is the relation between the bird and the nest in the image?", "label": "yes"}
+{"question_id": 60, "image": "", "text": "What is the relation between the skateboard and the rail in the image?", "label": "yes"}
+{"question_id": 61, "image": "", "text": "What is the relation of the cow and the pasture in the image?", "label": "yes"}
+{"question_id": 62, "image": "", "text": "What is the relation between the cup and the coffee maker in the image?", "label": "yes"}
+{"question_id": 63, "image": "", "text": "What is the relation between the tree and the swing in the image?", "label": "yes"}
+{"question_id": 64, "image": "", "text": "What is the relation of the airplane and the runway in the image?", "label": "yes"}
+{"question_id": 65, "image": "", "text": "What is the relation between the baseball bat and the baseball in the image?", "label": "yes"}
+{"question_id": 66, "image": "", "text": "What is the relation between the elephant and the zookeeper in the image?", "label": "yes"}
+{"question_id": 67, "image": "", "text": "What is the relation of the laptop and the desk in the image?", "label": "yes"}
+{"question_id": 68, "image": "", "text": "What is the relation between the bottle and the wine glass in the image?", "label": "yes"}
+{"question_id": 69, "image": "", "text": "What is the relation between the dog and the hydrant in the image?", "label": "yes"}
+{"question_id": 70, "image": "", "text": "What is the relation of the chair and the table in the image?", "label": "yes"}
+{"question_id": 71, "image": "", "text": "What is the relation between the orange and the fruit bowl in the image?", "label": "yes"}
+{"question_id": 72, "image": "", "text": "What is the relation of the suitcase and the airport in the image?", "label": "yes"}
+{"question_id": 73, "image": "", "text": "What is the relation between the clock and the bedside table in the image?", "label": "yes"}
+{"question_id": 74, "image": "", "text": "What is the relation between the spoon and the pot in the image?", "label": "yes"}
+{"question_id": 75, "image": "", "text": "What is the relation of the cat and the window sill in the image?", "label": "yes"}
+{"question_id": 76, "image": "", "text": "What is the relation between the truck and the warehouse in the image?", "label": "yes"}
+{"question_id": 77, "image": "", "text": "What is the relation between the book and the bookmark in the image?", "label": "yes"}
+{"question_id": 78, "image": "", "text": "What is the relation between the frisbee and the player in the image?", "label": "yes"}
+{"question_id": 79, "image": "", "text": "What is the relation of the horse and the saddle in the image?", "label": "yes"}
+{"question_id": 80, "image": "", "text": "What is the relation between the pizza and the pepperoni in the image?", "label": "yes"}
