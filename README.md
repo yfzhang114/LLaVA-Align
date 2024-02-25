@@ -1,6 +1,6 @@
-<p align="center" width="100%">
+<!-- <p align="center" width="100%">
 <a target="_blank"><img src="figs/VCD_logo_title.png" alt="Visual Contrastive Decoding" style="width: 75%; min-width: 200px; display: block; margin: auto;"></a>
-</p>
+</p> -->
 
 # Debiasing Large Visual Language Models
 <!-- **Debiasing Large Visual Language Models** -->
@@ -113,13 +113,13 @@ To assess the impact of decoding configurations on LVLMs, follow these steps:
 
 
 ## 📌 Examples
-![Case1](figs/sample1.jpg)
+![Case1](figs/sample1.png)
 *Figure 12. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-7B. VDD is demonstrated to be less hallucinated.*
 
-![Case2](figs/sample2.jpg)
+![Case2](figs/sample2.png)
 *Figure 13. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-13B. VDD is demonstrated to be less hallucinated.*
 
-![Case3](figs/sample3.jpg)
+![Case3](figs/sample3.png)
 *Figure 14. Another Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-13B. VDD is demonstrated to be more helpful and precies.*
 
 
