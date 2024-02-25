@@ -6,7 +6,7 @@ from tqdm import tqdm
 import shortuuid
 import sys
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '6' 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))))
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # print(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -32,17 +32,6 @@ evolve_vcd_sampling()
 LABEL_DICT = {0: ['yes'], 1: ['no']}
 LABEL_TO_INT = {'yes': 0, 'no': 1}
 
-# def calibrate_label_dict(logits, tokenizer, label_dict=LABEL_DICT, top_k=100, apply_softmax=True, content_free_inputs=('N/A',)):
-#     probs = logits.float().cpu() if not apply_softmax else torch.softmax(logits, dim=-1).float().cpu()
-#     top_probs, top_tokens = torch.topk(probs, k=top_k)
-#     temp = {}
-#     for prob, token in zip(top_probs[0], top_tokens[0]):
-#         str_token = tokenizer.decode(token.item())
-#         if str_token not in temp.keys():
-#             temp[str_token] = prob.item()
-#         else:
-#             pass
-#     return temp
 
 def get_prob_from_logits(top_token_probs):
     return [0, 0]
@@ -97,7 +86,7 @@ def eval_model(args):
     model_name = get_model_name_from_path(model_path)
     tokenizer, model, image_processor, context_len = load_pretrained_model(model_path, args.model_base, model_name)
 
-    for question_name in ['actions']:#'numbers', 'colors', 'relations', 'shapes'
+    for question_name in ['actions','numbers', 'colors', 'relations', 'shapes' ]:
         question_file = f'data/POPE/coco/all_coco_{question_name}.json'
         answers_file = f'output/all_coco_{question_name}.json'
         questions = [json.loads(q) for q in open(os.path.expanduser(question_file), "r")]

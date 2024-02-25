@@ -19,13 +19,20 @@
                 // "--cd_alpha", "1",
                 // "--cd_beta", "0.1",
                 // "--temperature", "1.0",
-                "--image-folder", "/mnt/data/xue.w/yf/data/coco/val2014",
+                // "--image-folder", "/mnt/workspace/xue.w/yf/data/coco/val2014",
+                // "--question-file", "data/qa90_questions.jsonl",
+                // "--question", "./data/qa90_questions.jsonl",
+                // "--context", "./data/caps_boxes_coco2014_val_80.jsonl",
+                // "--answer-list", "./data/qa90_gpt4_answer.jsonl output/llava_bench/qwen-VL-Chat/qwen_naive_seed53_default.jsonl",
+                // "--rule", "./data/rule.json",
+                // "--output", "output/llava_bench_results/review-file-qwen_naive_seed53_default.jsonl"
+                "--dir", "output/llava_bench_results/"
                 // "--use_cd",
                 // "--noise_step", "999",
                 // "--answers-file", "/mnt/data/xue.w/yf/VCD/experiments/eval/MME/answers/test.jsonl",
 
                 // "--config_path", "/mnt/data/xue.w/yf/VCD/experiments/eval/MMMU/configs/llava1.5.yaml"
-                // "--experiment", "llava-v1.5-7b-t1_vdd_unk",
+                // "--experiment", "llava-v1.5-7b-sft-cd",
                 // "--results_dir", "/mnt/data/xue.w/yf/VCD/experiments/eval/MME/eval_tool/answers/llava-v1.5-7b-t1_naive"
             ]
         }

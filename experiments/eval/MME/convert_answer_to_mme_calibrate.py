@@ -50,9 +50,12 @@ if __name__ == "__main__":
     experiment = args.experiment
 
 
-    answers = [json.loads(line) for line in open(os.path.join('eval/MME/answers', f'{experiment}.jsonl'))]
+    answers = [json.loads(line) for line in open(os.path.join('eval/MME/answers/MME_sft_dd', f'{experiment}.jsonl'))]
 
-    
+    # answers_ref = [json.loads(line) for line in open('eval/MME/answers/MME_sft/llava-v1.5-7b-sft-greedy.jsonl')]
+    # for anw, anw_ref in zip(answers, answers_ref):
+    #     anw['prompt'] = anw_ref['prompt']
+
     prob = {}
     labels = []
     mode = 'diagonal_W'
@@ -71,28 +74,30 @@ if __name__ == "__main__":
     
     LABEL_DICT = {0: 'yes', 1: 'no'}
     LABEL_TO_INT = {'yes': 0, 'no': 1}
-    for name in ['naive', 'noise', 'none', 'zero', 'one']:
+    for name in ['naive', 'none', 'unk']:
         prob[name] = []
     for index, line in enumerate(answers):
-        for name in ['naive', 'noise', 'none', 'zero', 'one']:
+        for name in ['naive', 'none', 'unk']:
             token_dict = answers[index][name]
             prob[name].append(get_prob_from_logits(token_dict))
     calibrate_mode = 'individual'
-    for name in ['naive', 'noise', 'none', 'zero', 'one', 'noise_none', 'noise_zero', 'noise_none_zero', 'all']:
+    for name in ['naive', 'none', 'unk', 'none_unk']:
 
         results = defaultdict(list)
         W = np.identity(num_classes)
         b = np.zeros([num_classes, 1])
 
         if calibrate_mode == 'all' and name != 'naive':
-            if name == 'noise_none':
+            if name == 'none_noise':
                 all_p_y = np.array(prob['noise']) + np.array(prob['none'])
-            elif name == 'noise_none_zero':
-                all_p_y = np.array(prob['noise']) + np.array(prob['none']) + np.array(prob['zero'])
+            elif name == 'none_unk':
+                all_p_y = np.array(prob['unk']) + np.array(prob['none'])
+            elif name == 'none_unk_noise':
+                all_p_y = np.array(prob['noise']) + np.array(prob['none']) + np.array(prob['unk'])
             elif name == 'noise_zero':
                 all_p_y = np.array(prob['noise']) + np.array(prob['zero'])
             elif name == 'all':
-                all_p_y = np.array(prob['noise']) + np.array(prob['none']) + np.array(prob['zero']) + np.array(prob['one'])
+                all_p_y = np.array(prob['noise']) + np.array(prob['none']) + np.array(prob['zero']) + np.array(prob['unk'])
             else:
                 all_p_y = prob[name]
             p_cf = np.mean(np.array(all_p_y), axis=0)
@@ -101,6 +106,8 @@ if __name__ == "__main__":
         for i, answer in enumerate(answers):
             category = answer['question_id'].split('/')[0]
             file = answer['question_id'].split('/')[-1].split('.')[0] + '.txt'
+            
+
             question = answer['prompt']
             if name == 'naive':
                 results[category].append((file, answer['prompt'], answer['text']))
@@ -108,17 +115,17 @@ if __name__ == "__main__":
 
             gen_answer = prob['naive'][i]
             if calibrate_mode == 'individual' and name != 'naive':
-                if name == 'noise_none':
+                if name == 'none_noise':
                     all_p_y = np.array(prob['noise'][i]) + np.array(prob['none'][i])
                     p_cf = all_p_y / np.sum(all_p_y)
-                elif name == 'noise_zero':
-                    all_p_y = np.array(prob['noise'][i]) + np.array(prob['zero'][i])
+                elif name == 'none_unk':
+                    all_p_y = np.array(prob['unk'][i]) + np.array(prob['none'][i])
                     p_cf = all_p_y / np.sum(all_p_y)
-                elif name == 'noise_none_zero':
-                    all_p_y = np.array(prob['noise'][i]) + np.array(prob['none'][i]) + np.array(prob['zero'][i])
+                elif name == 'none_unk_noise':
+                    all_p_y = np.array(prob['noise'][i]) + np.array(prob['none'][i]) + np.array(prob['unk'][i])
                     p_cf = all_p_y / np.sum(all_p_y)
                 elif name == 'all':
-                    all_p_y = np.array(prob['noise'][i]) + np.array(prob['none'][i]) + np.array(prob['zero'][i]) + np.array(prob['one'][i])
+                    all_p_y = np.array(prob['noise'][i]) + np.array(prob['none'][i]) + np.array(prob['zero'][i]) + np.array(prob['unk'][i])
                     p_cf = all_p_y / np.sum(all_p_y)
                 else:
                     p_cf = prob[name][i]
@@ -131,7 +138,7 @@ if __name__ == "__main__":
             idx = np.argmax(calibrate_label_probs)
             results[category].append((file, answer['prompt'], LABEL_DICT[idx].capitalize()))
 
-        result_dir = os.path.join('eval/MME/eval_tool', 'answers', f'{experiment}_{name}')
+        result_dir = os.path.join('eval/MME/eval_tool', 'answers', f'{experiment}-{name}')
         os.makedirs(result_dir, exist_ok=True)
         for category, cate_tups in results.items():
             with open(os.path.join(result_dir, f'{category}.txt'), 'w') as fp:

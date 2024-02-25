@@ -164,7 +164,7 @@ if __name__ == "__main__":
     files = os.listdir(folder_path)
 
     results = {}
-    file_name = 'llava-v1.5-7b-t1_vdd_unk'
+    file_name = 'VL-Chat-naive'
     
     for file in files:
         if file.startswith(file_name):

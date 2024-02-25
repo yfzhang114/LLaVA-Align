@@ -96,7 +96,7 @@ def get_result(args):
 if __name__ == '__main__':
 
     parser = ArgumentParser()
-    parser.add_argument('--output_path', type=str, default="/mnt/data/xue.w/yf/VCD/experiments/output/sampling/MMMU", help="The path to model output file.")
+    parser.add_argument('--output_path', type=str, default="output/sampling/mmmu/llava_13bsft_mmmu", help="The path to model output file.")
     parser.add_argument('--answer_path', type=str, default="/mnt/data/xue.w/yf/VCD/experiments/eval/MMMU/answer_dict_val.json", help="Answer file path.")
     args = parser.parse_args()
 
@@ -107,10 +107,11 @@ if __name__ == '__main__':
     files = os.listdir(folder_path)
 
     results = {}
+    exp_name = 'llava13b_sft_'
     for file in files:
-        if file.startswith("llava1.5"):
+        if file.startswith(exp_name):
             args.output_path = os.path.join(folder_path, file)
-            name = file.split('llava1.5_')[-1][:-6]
+            name = file.split(exp_name)[-1][:-6]
             results[name] = get_result(args)
             print(results[name])
     
@@ -118,6 +119,6 @@ if __name__ == '__main__':
     acc_data = {key: {sub_key: sub_dict['acc'] for sub_key, sub_dict in value.items()} for key, value in results.items()}
     df = pd.DataFrame(acc_data)
     df = df.reindex(sorted(df.columns), axis=1)
-    excel_file_path = 'sampling_mmmu.xlsx'
+    excel_file_path = f'{exp_name}mmmu-sampling.xlsx'
     df.to_excel(excel_file_path)
 

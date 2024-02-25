@@ -50,7 +50,7 @@ if __name__ == "__main__":
     result_dir = os.path.join('eval/MME/eval_tool', 'answers', experiment)
     os.makedirs(result_dir, exist_ok=True)
 
-    answers = [json.loads(line) for line in open(os.path.join('/mnt/data/xue.w/yf/VCD/experiments/eval/MME/answers', f'{experiment}.jsonl'))]
+    answers = [json.loads(line) for line in open(os.path.join('eval/MME/answers/MME_sft', f'{experiment}.jsonl'))]
 
     results = defaultdict(list)
     for answer in answers:

@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, confu
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--results_dir', default='/mnt/data/xue.w/yf/VCD/experiments/eval/MME/eval_tool/answers/llava-v1.5-7b-t09', type=str)
+parser.add_argument('--results_dir', default='/mnt/data/xue.w/yf/VCD/experiments/eval/MME/eval_tool/answers/llava-v1.5-7b-sft-default', type=str)
 
 eval_type_dict = {
     "Perception": ["existence", "count", "position", "color",],

@@ -2,44 +2,65 @@
 <a target="_blank"><img src="figs/VCD_logo_title.png" alt="Visual Contrastive Decoding" style="width: 75%; min-width: 200px; display: block; margin: auto;"></a>
 </p>
 
-# VCD: Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding
-<!-- **VCD: Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding** -->
-This is the official repo for Visual Contrastive Decoding, a simple, training-free method for mitigating hallucinations in LVLMs during decoding without utilizing external tools.
-
-<div style='display:flex; gap: 0.25rem; '>
-<a href='LICENCE'><img src='https://img.shields.io/badge/License-Apache 2.0-g.svg'></a>
-<a href='https://arxiv.org/abs/2311.16922'><img src='https://img.shields.io/badge/Paper-PDF-red'></a>
-<a href='https://twitter.com/Leon_L_S_C'><img src='https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40Us'></a>
-</div>
+# Debiasing Large Visual Language Models
+<!-- **Debiasing Large Visual Language Models** -->
+This is the official repo for Debiasing Large Visual Language Models, including a Post-Hoc debias method and Visual Debias Decoding strategy. These strategies not only prove beneficial in minimizing hallucinations but also contribute to the generation of more helpful and precise illustrations
 
 ## 🔥 Update
 * [2023-11-29]: ⭐️ Paper of VCD online. Check out [this link](https://arxiv.org/abs/2311.16922) for details.
 * [2023-11-28]: 🚀🚀 Codes released.
 
 ## 🎯 Overview
-![VCD](figs/figure1.png)
-- We introduce Visual Contrastive Decoding (VCD), **a simple and training-free** method that contrasts output distributions derived from original and distorted visual inputs.
-- The new **contrastive probability distribution** for decoding is formulated as follows:
-```math
-p_{vcd}(y \mid v, v', x) = softmax[ (1+\alpha)\times logit_\theta (y \mid v, x) - \alpha \times logit_\theta(y \mid v', x)],
-```
-- The proposed VCD effectively reduces the over-reliance on **statistical bias** and **unimodal priors**, two essential causes of object hallucinations.
+![LLaVA-v1.5-7B generate confident answer with meaningless images. "None" indicates the absence of an input image, while "Noise" signifies the presence of Gaussian noise matching the image dimensions. "Zeros, Ones" indicates a scenario where a tensor with all zero/one values.](figs/model_bias.png)
+- Our investigation reveals a noteworthy bias in the generated content, where the output is primarily influenced by the underlying Language Models (LLMs) rather than the input image.
+
+![Large Visual Language Models Debiasing](figs/bias_model.png)
+- We introduce Post-Hoc debias, where a "calibration" step is implemented for the model's output probabilities using an affine transformation.
+- We introduce Visual Debias Decoding (VDD), **a simple and training-free** method that contrasts output distributions derived from original and image-free visual inputs.
+
+- These strategies not only prove beneficial in minimizing hallucinations but also contribute to the generation of more helpful and precise illustrations.
 
 
 ## 🕹️ Usage
 ### Environment Setup
 ```bash
-conda create -yn vcd python=3.9
-conda activate vcd
-cd VCD
+conda create -yn vdd python=3.9
+conda activate vdd
+cd VDD
 pip install -r requirements.txt
 ```
 
-### How to Use VCD in LVLMs
+### Re-implementation of Our Results
 
-The two core function of VCD, adding noise to images and generating text based on VCD sampling, are found in the `vcd_utils` folder. Scripts for using VCD sampling in LLaVA, InstructBLIP, and QwenVL are located in `VCD/eval`. We have annotated some key changes with `## cd_comment` for easy location using ctrl+f.
+For all experiments presented in our paper, refer to the `experiments/scripts` directory for detailed commands and scripts. Below, we provide simple implementation examples and guidance.
 
-To help you get started quickly, here's an example using LLaVA on how to replace the conventional sampling method with the VCD method during generation:
+
+### How to Use Post-Hoc Debiasing in LVLMs
+
+To implement Post-Hoc Debiasing in LVLMs, follow these steps:
+
+1. **Obtain Output Distributions:**
+   - Generate output distributions with naive image and meaningless vision information, such as pure text input (None) or by replacing vision tokens with `</unk>`.
+   - For the POPE benchmark, use the following code to calculate the top-k tokens with their probabilities for each input:
+     ```bash
+     ./eval/calibrate/llava_calibrate.py
+     ```
+
+2. **Initialize Debiasing Weight:**
+   - With the obtained naive classification distribution and debiased classification distribution, initialize the debiasing weight $W$ and bias $b$.
+   - Adjust the output distribution using affine transformation.
+
+3. **Concrete Example - POPE Binary Classification:**
+   - For the POPE binary classification setting, run the following code to see a concrete example:
+     ```bash
+     ./eval/eval_pope_calibrate.py
+     ```
+
+Feel free to modify the parameters or refer to the code for additional details on the implementation of Post-Hoc Debiasing in LVLMs.
+
+### How to Use VDD in LVLMs
+
+To help you get started quickly, here's an example using LLaVA on how to replace the conventional sampling method with the VDD/VCD method during generation:
 1. Add the following at the beginning of the start-up script:
 ```python
 from vcd_utils.vcd_sample import evolve_vcd_sampling
@@ -53,49 +74,53 @@ The `evolve_vcd_sampling` function replaces the sampling function in the transfo
    
    b. Add the `prepare_inputs_for_generation_cd` function.
 
-3. Add noise to the image:
-```python
-from vcd_utils.vcd_add_noise import add_diffusion_noise
-image_tensor_cd = add_diffusion_noise(image_tensor, args.noise_step)
-```
-set the hyperparameter in the `generate` function:
+3. set the hyperparameter in the `generate` function:
+
+
 ```python
 output_ids = model.generate(
     input_ids,
     images=image_tensor.unsqueeze(0).half().cuda(),
-    images_cd=(image_tensor_cd.unsqueeze(0).half().cuda() if image_tensor_cd is not None else None),
+    use_dd=args.use_dd,
+    use_dd_unk=args.use_dd_unk,
     cd_alpha = args.cd_alpha,
     cd_beta = args.cd_beta,
     do_sample=True)
 ```
 
-## 🏅 Experiments
-- **VCD significantly mitigates the object hallucination issue across different LVLM families.**
-![exp1](figs/exp1.png)
-*table 1(Part of). Results on POPE. Regular decoding denotes direct sampling, whereas VCD refers to sampling from our proposed contrastive distribution pvcd. The best performances within each setting are bolded.*
+```
+--use_dd: use pure text input for debias decoding
+--use_dd_unk: replace the image tokens with </unk> token, the output logits will be used for debias decoding
+--use_dd --use_dd_unk: use both of them
+```
 
-- **Beyond mitigating object hallucinations, VCD also excels in general LVLM benchmarks, highlighting its wide-ranging applicability.**
-![exp2](figs/exp2.png)
-*figure 4. MME full set results on LLaVA-1.5. VCD consistently enhances LVLMs’ perception capacities while preserving their recognition competencies.*
-<p align="center" width="80%">
-<a target="_blank"><img src="figs/exp3.png" alt="GPT4V aided evaluation" style="width: 50%; min-width: 200px; display: block; margin: auto;"></a>
-</p>
+### How to Test the Effects of Decoding Configurations on LVLMs
 
-*table 3. Results of GPT-4V-aided evaluation on open-ended generation. Accuracy measures the response’s alignment with the image content, and Detailedness gauges the richness of details in the response. Both metrics are on a scale of 10.*
+To assess the impact of decoding configurations on LVLMs, follow these steps:
 
-- **Please refer to [our paper](https://arxiv.org/abs/2311.16922) for detailed experimental results.**
+1. **Implement For-Loops:**
+   - Implement for-loops on the temperature, top-p, and top-k configurations in the decoding process.
+   - Collect the results obtained for each configuration.
 
+2. **Evaluate Results:**
+   - Evaluate the collected results using a similar approach as described in the preceding sections.
+
+3. **Concrete Example:**
+   - For a concrete example for POPE or LLaVA-Bench, run the following code to see how the implementation works:
+     ```bash
+     ./eval/sampling/llava_sampling.py
+     ```
 
 
 ## 📌 Examples
-![Case1](figs/case.jpg)
-*figure 5. Illustration of hallucination correction by our proposed VCD with two samples from LLaVA-Bench. Hallucinated objects from LVLM's regular decoding are highlighted in red.*
+![Case1](figs/sample1.jpg)
+*Figure 12. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-7B. VDD is demonstrated to be less hallucinated.*
 
-![Case2](figs/case_general.jpg)
-*figure 8. More examples from LLaVA-Bench of our proposed VCD for enhanced general perception and recognition capacities.*
+![Case2](figs/sample2.jpg)
+*Figure 13. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-13B. VDD is demonstrated to be less hallucinated.*
 
-![Case3](figs/case_hallu.jpg)
-*figure 7. More examples from LLaVA-Bench of our proposed VCD for hallucination corrections. Hallucinated objects from LVLM's regular decoding are highlighted in red.*
+![Case3](figs/sample3.jpg)
+*Figure 14. Another Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-13B. VDD is demonstrated to be more helpful and precies.*
 
 
 ## 📑 Citation
@@ -112,6 +137,6 @@ If you find our project useful, we hope you can star our repo and cite our paper
 
 ## 📝 Related Projects
 - [Contrastive Decoding](https://github.com/XiangLi1999/ContrastiveDecoding): Open-ended Text Generation as Optimization
-- [InstructBLIP](https://github.com/salesforce/LAVIS/tree/main/projects/instructblip): Towards General-purpose Vision-Language Models with Instruction Tuning
 - [Qwen-VL](https://github.com/QwenLM/Qwen-VL): A Versatile Vision-Language Model for Understanding, Localization, Text Reading, and Beyond
 - [LLaVA 1.5](https://github.com/haotian-liu/LLaVA): Improved Baselines with Visual Instruction Tuning
+- [VCD](https://github.com/DAMO-NLP-SG/VCD/): Visual Contrastive Decoding

@@ -10,7 +10,7 @@ from tqdm import tqdm
 from datasets import load_dataset, concatenate_datasets
 from llava.model.builder import load_pretrained_model
 from llava.mm_utils import get_model_name_from_path
-from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN
+from llava.constants import IMAGE_TOKEN_INDEX, DEFAULT_IMAGE_TOKEN, DEFAULT_IM_START_TOKEN, DEFAULT_IM_END_TOKEN, DEFAULT_IMAGE_PATCH_TOKEN
 from llava.conversation import conv_templates, SeparatorStyle
 
 from argparse import ArgumentParser

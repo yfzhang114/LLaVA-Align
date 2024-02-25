@@ -95,7 +95,9 @@ class calculate_metrics:
 
                 task_txt = os.path.join(results_dir, task_name + ".txt")
                 lines = open(task_txt, 'r').readlines()
-                chunk_lines = list(self.divide_chunks(lines)) # one image corresponds to two questions
+                filtered_lines = [line.strip() for line in lines if len(line.strip().split('\t')) == 4]
+
+                chunk_lines = list(self.divide_chunks(filtered_lines)) # one image corresponds to two questions
                 
                 img_num = len(chunk_lines)
                 task_other_ans_num = 0
@@ -164,11 +166,11 @@ if __name__ == "__main__":
     files = os.listdir(folder_path)
 
     results = {}
-    file_name = 'llava-v1.5-7b-calibratet1'
+    file_name = 'llava-v1.5-13b-sft'
     for file in files:
         if file.startswith(file_name):
             results_dir = os.path.join(folder_path, file)
-            name = file.split('llava-v1.5-')[-1]
+            name = file.split(file_name)[-1]
             results[name] = cal.process_result(results_dir)
             print(results[name])
     
