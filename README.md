@@ -26,7 +26,7 @@ This is the official repo for Debiasing Large Visual Language Models, including 
 ```bash
 conda create -yn vdd python=3.9
 conda activate vdd
-cd VDD
+cd LLaVA-Align
 pip install -r requirements.txt
 ```
 
