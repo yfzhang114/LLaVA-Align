@@ -7,8 +7,8 @@
 This is the official repo for Debiasing Large Visual Language Models, including a Post-Hoc debias method and Visual Debias Decoding strategy. These strategies not only prove beneficial in minimizing hallucinations but also contribute to the generation of more helpful and precise illustrations
 
 ## 🔥 Update
-* [2023-11-29]: ⭐️ Paper of VCD online. Check out [this link](https://arxiv.org/abs/2311.16922) for details.
-* [2023-11-28]: 🚀🚀 Codes released.
+* [2024-03-08]: ⭐️ Paper online. Check out [Debiasing Large Visual Language Models](https://arxiv.org/abs/2403.05262) for details.
+* [2024-03-11]: 🚀🚀 Codes released.
 
 ## 🎯 Overview
 ![LLaVA-v1.5-7B generate confident answer with meaningless images. "None" indicates the absence of an input image, while "Noise" signifies the presence of Gaussian noise matching the image dimensions. "Zeros, Ones" indicates a scenario where a tensor with all zero/one values.](figs/model_bias.png)
@@ -113,8 +113,8 @@ To assess the impact of decoding configurations on LVLMs, follow these steps:
 
 
 ## 📌 Examples
-![Case1](figs/sample1.png)
-*Figure 12. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-7B. VDD is demonstrated to be less hallucinated.*
+<!-- ![Case1](figs/sample1.png)
+*Figure 12. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-7B. VDD is demonstrated to be less hallucinated.* -->
 
 ![Case2](figs/sample2.png)
 *Figure 13. Qualitative examples showcasing the impact of VDD on LLaVA-v1.5-13B. VDD is demonstrated to be less hallucinated.*
@@ -126,12 +126,13 @@ To assess the impact of decoding configurations on LVLMs, follow these steps:
 ## 📑 Citation
 If you find our project useful, we hope you can star our repo and cite our paper as follows:
 ```
-@article{damonlpsg2023vcd,
-  author = {Sicong Leng, Hang Zhang, Guanzheng Chen, Xin Li, Shijian Lu, Chunyan Miao, Lidong Bing},
-  title = {Mitigating Object Hallucinations in Large Vision-Language Models through Visual Contrastive Decoding},
-  year = 2023,
-  journal = {arXiv preprint arXiv:2311.16922},
-  url = {https://arxiv.org/abs/2311.16922}
+@misc{zhang2024debiasing,
+      title={Debiasing Large Visual Language Models}, 
+      author={Yi-Fan Zhang and Weichen Yu and Qingsong Wen and Xue Wang and Zhang Zhang and Liang Wang and Rong Jin and Tieniu Tan},
+      year={2024},
+      eprint={2403.05262},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
