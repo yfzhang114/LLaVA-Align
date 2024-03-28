@@ -206,33 +206,33 @@ def sample(
             probs = nn.functional.softmax(next_token_scores, dim=-1)
             next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
         
-        use_calibrate = model_kwargs.get("use_calibrate", False)
-        if use_calibrate:
-            model_kwargs_custom = model_kwargs.copy()
-            model_inputs_custom = self.prepare_inputs_for_generation_custom(input_ids, **model_kwargs_custom)
-            outputs_custom = self(
-                **model_inputs_custom,
-                return_dict=True,
-                output_attentions=output_attentions_wo_img,
-                output_hidden_states=output_hidden_states_wo_img,
-            )
-            next_token_logits_custom = outputs_custom.logits[:, -1, :]
+        # use_calibrate = model_kwargs.get("use_calibrate", False)
+        # if use_calibrate:
+        #     model_kwargs_custom = model_kwargs.copy()
+        #     model_inputs_custom = self.prepare_inputs_for_generation_custom(input_ids, **model_kwargs_custom)
+        #     outputs_custom = self(
+        #         **model_inputs_custom,
+        #         return_dict=True,
+        #         output_attentions=output_attentions_wo_img,
+        #         output_hidden_states=output_hidden_states_wo_img,
+        #     )
+        #     next_token_logits_custom = outputs_custom.logits[:, -1, :]
             
-            cb_cut_weight = model_kwargs.get("cb_cut_weight") if model_kwargs.get("cb_cut_weight") is not None else 0.5
-            cb_m_weight = model_kwargs.get("cb_m_weight") if model_kwargs.get("cb_m_weight") is not None else 0.5
+        #     cb_cut_weight = model_kwargs.get("cb_cut_weight") if model_kwargs.get("cb_cut_weight") is not None else 0.5
+        #     cb_m_weight = model_kwargs.get("cb_m_weight") if model_kwargs.get("cb_m_weight") is not None else 0.5
             
-            cutoff = cb_cut_weight * next_token_logits.max(dim=-1, keepdim=True).values
-            next_token_logits = next_token_logits.masked_fill(next_token_logits < cutoff, -float("inf"))
-            # print(f'cnt non inf {torch.sum(next_token_logits != -float("inf")).item()}')
-            next_token_logits[:,eos_token_id[0] + 1:] = next_token_logits[:,eos_token_id[0] + 1:] - cb_m_weight*next_token_logits_custom[:,eos_token_id[0] + 1:]
-            # custom_logits = diffs.masked_fill(next_token_logits < cutoff, -float("inf"))
+        #     cutoff = cb_cut_weight * next_token_logits.max(dim=-1, keepdim=True).values
+        #     next_token_logits = next_token_logits.masked_fill(next_token_logits < cutoff, -float("inf"))
+        #     # print(f'cnt non inf {torch.sum(next_token_logits != -float("inf")).item()}')
+        #     next_token_logits[:,eos_token_id[0] + 1:] = next_token_logits[:,eos_token_id[0] + 1:] - cb_m_weight*next_token_logits_custom[:,eos_token_id[0] + 1:]
+        #     # custom_logits = diffs.masked_fill(next_token_logits < cutoff, -float("inf"))
             
-            custom_logits = logits_processor(input_ids, next_token_logits)
-            custom_logits = logits_warper(input_ids, custom_logits)
+        #     custom_logits = logits_processor(input_ids, next_token_logits)
+        #     custom_logits = logits_warper(input_ids, custom_logits)
 
-            next_token_scores = custom_logits
-            probs = nn.functional.softmax(custom_logits, dim=-1)
-            next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+        #     next_token_scores = custom_logits
+        #     probs = nn.functional.softmax(custom_logits, dim=-1)
+        #     next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
 
         # Store scores, attentions and hidden_states when required
         if return_dict_in_generate:
@@ -276,10 +276,10 @@ def sample(
                 outputs_dd, model_kwargs_dd, is_encoder_decoder=self.config.is_encoder_decoder
             )
         
-        if use_calibrate:
-            model_kwargs_custom = self._update_model_kwargs_for_generation(
-                outputs_custom, model_kwargs_custom, is_encoder_decoder=self.config.is_encoder_decoder
-            )
+        # if use_calibrate:
+        #     model_kwargs_custom = self._update_model_kwargs_for_generation(
+        #         outputs_custom, model_kwargs_custom, is_encoder_decoder=self.config.is_encoder_decoder
+        #     )
 
         # if eos_token was found in one sentence, set sentence to finished
         if eos_token_id_tensor is not None:

@@ -5,7 +5,7 @@ model=liuhaotian/llava-v1.5-${size}b
 
 # using SFT model
 root=your_cache_dir
-model=$root/LLaVA-RLHF-7b-v1.5-224/sft_model
+model=liuhaotian/llava-v1.5-7b # $root/LLaVA-RLHF-7b-v1.5-224/sft_model
 
 # naive
 python eval/MME/run_llava.py \

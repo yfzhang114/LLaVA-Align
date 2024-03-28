@@ -2,12 +2,12 @@
 <a target="_blank"><img src="figs/VCD_logo_title.png" alt="Visual Contrastive Decoding" style="width: 75%; min-width: 200px; display: block; margin: auto;"></a>
 </p> -->
 
-# Debiasing Large Visual Language Models
+# Debiasing Large Visual Language Models / Debiasing Multimodal Large Language Models
 <!-- **Debiasing Large Visual Language Models** -->
 This is the official repo for Debiasing Large Visual Language Models, including a Post-Hoc debias method and Visual Debias Decoding strategy. These strategies not only prove beneficial in minimizing hallucinations but also contribute to the generation of more helpful and precise illustrations
 
 ## 🔥 Update
-* [2024-03-08]: ⭐️ Paper online. Check out [Debiasing Large Visual Language Models](https://arxiv.org/abs/2403.05262) for details.
+* [2024-03-08]: ⭐️ Paper online. Check out [Debiasing Multimodal Large Language Models](https://arxiv.org/abs/2403.05262) for details.
 * [2024-03-11]: 🚀🚀 Codes released.
 
 ## 🎯 Overview
