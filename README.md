@@ -126,13 +126,11 @@ To assess the impact of decoding configurations on LVLMs, follow these steps:
 ## 📑 Citation
 If you find our project useful, we hope you can star our repo and cite our paper as follows:
 ```
-@misc{zhang2024debiasing,
-      title={Debiasing Large Visual Language Models}, 
-      author={Yi-Fan Zhang and Weichen Yu and Qingsong Wen and Xue Wang and Zhang Zhang and Liang Wang and Rong Jin and Tieniu Tan},
-      year={2024},
-      eprint={2403.05262},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{zhang2024debiasing,
+  title={Debiasing multimodal large language models},
+  author={Zhang, Yi-Fan and Yu, Weichen and Wen, Qingsong and Wang, Xue and Zhang, Zhang and Wang, Liang and Jin, Rong and Tan, Tieniu},
+  journal={arXiv preprint arXiv:2403.05262},
+  year={2024}
 }
 ```
 
